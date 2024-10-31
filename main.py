@@ -1,5 +1,7 @@
 from Currency import convert_money
 from Food_functions import menutable
+from Food_functions import shopping_cart_func
+from Food_functions import checkout
 import pprint
 import json
 from rich.console import Console
@@ -16,7 +18,7 @@ def mainmenu():
             "Open the menu",
             "Currency Exchange",
             "Shopping Cart",
-            "Order"
+            "Checkout"
         ]).ask()
     if choice == "Open the menu":
         menutable()
@@ -27,7 +29,15 @@ def mainmenu():
     elif choice == "Currency Exchange":
         convert_money()
         mainmenu()
+    
+    elif choice == "Shopping Cart":
+        shopping_cart_func()
+        mainmenu()
 
-    elif choice == "Order":
-        print("ordering goes here")
+
+
+    elif choice == "Checkout":
+        checkout()
+        mainmenu()
+        
 mainmenu()
